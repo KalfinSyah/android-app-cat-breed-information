@@ -1,3 +1,99 @@
 <resources>
     <string name="app_name">Cat Breed Information</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_about">About</string>
+
+    <string name="label_origin">From %s </string>
+    <string name="label_life_span">Life span is about %s </string>
+    <string name="label_appearance">The appearance is %s </string>
+
+    <string-array name="abyssinian_details">
+        <item>Abyssinian</item>
+        <item>Ethiopia</item>
+        <item>9–15 years</item>
+        <item>Medium-sized, slender, and muscular body with a ticked coat.</item>
+        <item>The Abyssinian is one of the oldest known cat breeds, believed to have originated in ancient Egypt. These cats are highly active, curious, and intelligent. Their love for climbing makes them enjoy high places like bookshelves or cat trees. They are affectionate with their owners but can also be independent. Abyssinians thrive in environments where they have plenty of mental stimulation and opportunities to play. Their unique ticked coat comes in a variety of shades, often giving them a wild, exotic appearance.</item>
+    </string-array>
+
+    <string-array name="american_shorthair_details">
+        <item>American Shorthair</item>
+        <item>United States</item>
+        <item>15–20 years</item>
+        <item>Stocky build, round face, and short, dense coat.</item>
+        <item>The American Shorthair is a versatile, adaptable breed that is well-suited to family life. Originally bred for hunting rodents on ships, these cats are strong and hardy. They are known for their friendly and calm demeanor, making them excellent companions for children and other pets. American Shorthairs require minimal grooming, and their thick coat comes in various colors and patterns. Their playful but independent nature makes them a low-maintenance yet loving member of any household.</item>
+    </string-array>
+
+    <string-array name="birman_details">
+        <item>Birman</item>
+        <item>France</item>
+        <item>12–16 years</item>
+        <item>Long silky coat, deep blue eyes, and striking color-point markings.</item>
+        <item>The Birman, also known as the "Sacred Cat of Burma," is a gentle and affectionate breed that bonds closely with its family. They are often described as dog-like due to their loyal and social behavior. Birmans enjoy following their owners around the house and are always curious about what their humans are doing. Despite their luxurious coat, they require relatively little grooming due to their lack of an undercoat, which reduces shedding and tangling. Their striking appearance and sweet personality make them a favorite among cat lovers.</item>
+    </string-array>
+
+    <string-array name="bombay_details">
+        <item>Bombay</item>
+        <item>United States</item>
+        <item>12–16 years</item>
+        <item>Sleek black coat with a muscular build and copper or gold eyes.</item>
+        <item>The Bombay is often called the "mini-panther" due to its sleek, jet-black coat and striking golden or copper eyes. This breed is highly social and thrives on attention, often demanding cuddles and playtime. Bombays are intelligent and can even learn tricks, making them an engaging companion for their owners. They are adaptable to various living situations, from busy families to single owners. Their charming and confident personality ensures they become the center of attention wherever they go.</item>
+    </string-array>
+
+    <string-array name="british_shorthair_details">
+        <item>British Shorthair</item>
+        <item>United Kingdom</item>
+        <item>12–20 years</item>
+        <item>Solid build, round face, and dense plush coat.</item>
+        <item>The British Shorthair is a dignified and charming breed known for its calm and independent nature. Often compared to a teddy bear due to their plush, dense coat and round face, these cats are gentle and affectionate without being overly clingy. They are well-suited to apartment living and are tolerant of children and other pets. Although they are not lap cats, British Shorthairs enjoy being near their humans and make loyal companions. Regular grooming helps maintain their thick coat in peak condition.</item>
+    </string-array>
+
+    <string-array name="maine_coon_details">
+        <item>Maine Coon</item>
+        <item>United States</item>
+        <item>10–13 years</item>
+        <item>Large size, tufted ears, and a long, bushy tail with a silky coat.</item>
+        <item>The Maine Coon is one of the largest domestic cat breeds, often referred to as "gentle giants." Despite their imposing size, they are incredibly friendly and social, making them excellent family pets. Maine Coons are highly intelligent and playful, often learning to fetch or perform simple tricks. Their thick, water-resistant coat helps them adapt to colder climates, but it requires regular grooming to prevent matting. Known for their dog-like loyalty, Maine Coons enjoy spending time with their owners and following them around the house.</item>
+    </string-array>
+
+    <string-array name="persian_details">
+        <item>Persian</item>
+        <item>Iran</item>
+        <item>12–17 years</item>
+        <item>Long, luxurious coat with a flat, round face and expressive eyes.</item>
+        <item>Persian cats are one of the most popular and recognizable breeds in the world, prized for their elegant appearance and calm demeanor. They thrive in quiet environments and enjoy lounging in cozy spots around the house. Persians are affectionate and enjoy attention but are not overly demanding. Their long, thick coat requires daily grooming to prevent tangling and maintain its beauty. With proper care, these gentle and loving cats can make a wonderful addition to any home.</item>
+    </string-array>
+
+    <string-array name="ragdoll_details">
+        <item>Ragdoll</item>
+        <item>United States</item>
+        <item>12–17 years</item>
+        <item>Large, semi-longhaired coat with striking blue eyes and color-point patterns.</item>
+        <item>Ragdolls are known for their docile and affectionate nature, often going limp like a ragdoll when picked up. This breed thrives on human companionship and enjoys being carried, cuddled, and included in daily activities. They are great with children and other pets due to their calm and patient temperament. Ragdolls require regular grooming to keep their semi-long coat in good condition. Their affectionate and laid-back personality makes them an ideal choice for families.</item>
+    </string-array>
+
+    <string-array name="siamese_details">
+        <item>Siamese</item>
+        <item>Thailand</item>
+        <item>15–20 years</item>
+        <item>Sleek body, large ears, and striking color-point markings with blue eyes.</item>
+        <item>The Siamese is one of the most vocal and social cat breeds, often engaging in "conversations" with their owners. These cats are highly intelligent and thrive in interactive environments. Siamese cats form strong bonds with their humans and can be very affectionate, often following their owners around the house. Their short, glossy coat requires minimal grooming, and their striking blue eyes and color-point patterns make them stand out. Siamese cats are best suited for homes where they receive plenty of attention and mental stimulation.</item>
+    </string-array>
+
+    <string-array name="siberian_details">
+        <item>Siberian</item>
+        <item>Russia</item>
+        <item>11–18 years</item>
+        <item>Medium to large size with a dense, water-resistant triple coat.</item>
+        <item>The Siberian is a robust and agile breed known for its ability to adapt to cold climates. These cats are friendly, outgoing, and form strong bonds with their families. Despite their dense coat, Siberians are relatively low-maintenance, as their fur resists matting. They are playful and enjoy interactive toys or climbing on furniture. Siberians are also known for being hypoallergenic, making them a good option for allergy sufferers. Their loyal and affectionate nature makes them a cherished companion.</item>
+    </string-array>
+
+    <string-array name="sphynx_details">
+        <item>Sphynx</item>
+        <item>Canada</item>
+        <item>8–14 years</item>
+        <item>Hairless with wrinkled skin, large ears, and muscular build.</item>
+        <item>The Sphynx is a unique and highly social breed that thrives on human attention. Due to their lack of fur, Sphynx cats are warm to the touch and enjoy snuggling to stay cozy. They are playful, curious, and love to be the center of attention. However, their hairless bodies require regular bathing to remove oils that would otherwise be absorbed by fur. Despite their unusual appearance, Sphynx cats are affectionate and outgoing, making them wonderful companions for those who appreciate their unique charm.</item>
+    </string-array>
 </resources>

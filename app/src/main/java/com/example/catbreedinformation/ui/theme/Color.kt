@@ -2,10 +2,10 @@ package com.example.catbreedinformation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val SoftPurple = Color(0xFF9B59B6)
+val LightLavender = Color(0xFFD6A9D1)
+val SoftPeach = Color(0xFFF8C7A6)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val DarkPurple = Color(0xFF6C3E9A)
+val DarkLavender = Color(0xFF5A4A70)
+val DarkPeach = Color(0xFFAD8B76)
