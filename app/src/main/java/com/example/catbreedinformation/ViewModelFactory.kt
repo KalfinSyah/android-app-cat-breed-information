@@ -2,7 +2,7 @@ package com.example.catbreedinformation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.catbreedinformation.data.CatBreedRepository
+import com.example.catbreedinformation.data.repository.CatBreedRepository
 import com.example.catbreedinformation.ui.screen.home.ScreenHomeViewModel
 
 class ViewModelFactory(private val repository: CatBreedRepository) :

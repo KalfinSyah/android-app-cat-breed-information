@@ -5,8 +5,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.catbreedinformation.data.CatBreedRepository
 import com.example.catbreedinformation.data.local.fake.CatBreed
+import com.example.catbreedinformation.data.repository.CatBreedRepository
 
 class ScreenHomeViewModel(
     private val repository: CatBreedRepository

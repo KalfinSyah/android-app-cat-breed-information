@@ -24,9 +24,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,11 +51,16 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.catbreedinformation.R
+import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
+import com.example.catbreedinformation.ui.AppViewModelProvider
+import kotlinx.coroutines.launch
 
 @Composable
 fun ScreenDetail(
     modifier: Modifier = Modifier,
+    viewModel: ScreenDetailViewModel = viewModel(factory = AppViewModelProvider.Factory),
     name: String,
     imageUrl: Int,
     origin: String,
@@ -61,7 +68,6 @@ fun ScreenDetail(
     appearance: String,
     description: String,
     onBackButtonClicked: () -> Unit = {},
-    onFavoriteButtonClicked: (Boolean) -> Unit = {}
 ) {
     Column(
         modifier = modifier
@@ -72,6 +78,7 @@ fun ScreenDetail(
     ) {
         DetailScreenItem(
             modifier = modifier,
+            viewModel = viewModel,
             name = name,
             imageUrl = imageUrl,
             origin = origin,
@@ -79,7 +86,6 @@ fun ScreenDetail(
             appearance = appearance,
             description = description,
             onBackButtonClicked = onBackButtonClicked,
-            onFavoriteButtonClicked = onFavoriteButtonClicked,
         )
     }
 }
@@ -87,6 +93,7 @@ fun ScreenDetail(
 @Composable
 fun DetailScreenItem(
     modifier: Modifier = Modifier,
+    viewModel: ScreenDetailViewModel,
     name: String,
     imageUrl: Int,
     origin: String,
@@ -94,8 +101,14 @@ fun DetailScreenItem(
     appearance: String,
     description: String,
     onBackButtonClicked: () -> Unit = {},
-    onFavoriteButtonClicked: (Boolean) -> Unit = {}
 ) {
+    val coroutineScope = rememberCoroutineScope()
+    var isFavorite by remember { mutableStateOf(false) }
+
+//    Run this code (the coroutine) whenever the name changes
+    LaunchedEffect(name) {
+        isFavorite = viewModel.checkIsFavorite(name)
+    }
 
     Button(
         onClick = { onBackButtonClicked() },
@@ -115,7 +128,6 @@ fun DetailScreenItem(
     }
     Spacer(modifier = modifier.height(32.dp))
     Box(modifier = modifier) {
-        var isFavorited by rememberSaveable { mutableStateOf(false) }
         Image(
             painter = painterResource(imageUrl),
             contentDescription = name,
@@ -130,7 +142,7 @@ fun DetailScreenItem(
                 .clip(RoundedCornerShape(percent = 25))
         )
         Icon(
-            imageVector = if (isFavorited) {
+            imageVector = if (isFavorite) {
                 Icons.Default.Favorite
             } else {
                 Icons.Default.FavoriteBorder
@@ -142,8 +154,26 @@ fun DetailScreenItem(
                 .size(50.dp)
                 .padding(4.dp)
                 .clickable {
-                    isFavorited = !isFavorited
-                    onFavoriteButtonClicked(isFavorited)
+                    isFavorite = !isFavorite
+
+                    if (isFavorite) {
+                        coroutineScope.launch {
+                            viewModel.setAsFavorite(
+                                favoriteCatBreed = FavoriteCatBreed(
+                                    name = name,
+                                    imageUrl = imageUrl,
+                                    origin = origin,
+                                    lifespan = lifespan,
+                                    appearance = appearance,
+                                    description = description
+                                )
+                            )
+                        }
+                    } else {
+                        coroutineScope.launch {
+                            viewModel.deleteFromFavorite(name)
+                        }
+                    }
                 },
             tint = Color.Red
         )

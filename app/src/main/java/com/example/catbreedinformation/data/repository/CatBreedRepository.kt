@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.data
+package com.example.catbreedinformation.data.repository
 
 import android.content.Context
 import com.example.catbreedinformation.data.local.fake.CatBreed

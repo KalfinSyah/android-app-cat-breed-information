@@ -79,9 +79,6 @@ fun CatBreedInformationApp(
                     onBackButtonClicked = {
                         navController.navigateUp()
                     },
-                    onFavoriteButtonClicked = { isFavorited ->
-
-                    }
                 )
             }
             composable(Screen.Favorite.route) {

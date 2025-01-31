@@ -1,5 +1,6 @@
 package com.example.catbreedinformation.ui.screen.home
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,20 +36,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.catbreedinformation.ViewModelFactory
-import com.example.catbreedinformation.di.Injection
+import com.example.catbreedinformation.ui.AppViewModelProvider
 import com.example.catbreedinformation.ui.components.SearchBar
 
 @Composable
 fun ScreenHome(
     modifier: Modifier = Modifier,
-    viewModel: ScreenHomeViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideRepository())
-    ),
+    viewModel: ScreenHomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onClick: (String, Int, String, String, String, String) -> Unit = { _, _, _, _, _, _ -> }
 ) {
     val context = LocalContext.current
     val catBreeds = viewModel.getAllCatBreed(context)
+
+    // if query is not empty, then delete the query first, then exit
+    BackHandler(enabled = viewModel.query.isNotEmpty()) {
+        viewModel.query = ""
+    }
 
     LazyVerticalGrid(
         modifier = modifier

@@ -7,23 +7,19 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [FavoriteCatBreed::class], version = 1)
 abstract class FavoriteCatBreedDatabase: RoomDatabase() {
+
     abstract fun getFavoriteCatBreedDao(): FavoriteCatBreedDao
 
     companion object {
         @Volatile
-        private var INSTANCE: FavoriteCatBreedDatabase? = null
-        @JvmStatic
+        private var Instance: FavoriteCatBreedDatabase? = null
+
         fun getDatabase(context: Context): FavoriteCatBreedDatabase {
-            if (INSTANCE == null) {
-                synchronized(FavoriteCatBreedDatabase::class.java) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        FavoriteCatBreedDatabase::class.java,
-                        "favorite_cat_breed_database"
-                    ).build()
-                }
+            return Instance ?: synchronized(this) {
+                Room.databaseBuilder(context, FavoriteCatBreedDatabase::class.java, "favorite_cat_breed_database")
+                    .build()
+                    .also { Instance = it }
             }
-            return INSTANCE as FavoriteCatBreedDatabase
         }
     }
 }
