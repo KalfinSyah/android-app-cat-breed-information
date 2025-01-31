@@ -10,12 +10,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.catbreedinformation.ui.components.navigation.BottomBar
-import com.example.catbreedinformation.ui.components.navigation.Screen
-import com.example.catbreedinformation.ui.components.screen.about.ScreenAbout
-import com.example.catbreedinformation.ui.components.screen.detail.ScreenDetail
-import com.example.catbreedinformation.ui.components.screen.favorite.ScreenFavorite
-import com.example.catbreedinformation.ui.components.screen.home.ScreenHome
+import com.example.catbreedinformation.navigation.Screen
+import com.example.catbreedinformation.ui.components.BottomBar
+import com.example.catbreedinformation.ui.screen.about.ScreenAbout
+import com.example.catbreedinformation.ui.screen.detail.ScreenDetail
+import com.example.catbreedinformation.ui.screen.favorite.ScreenFavorite
+import com.example.catbreedinformation.ui.screen.home.ScreenHome
 
 @Composable
 fun CatBreedInformationApp(
@@ -79,7 +79,8 @@ fun CatBreedInformationApp(
                     onBackButtonClicked = {
                         navController.navigateUp()
                     },
-                    onFavoriteButtonClicked = {
+                    onFavoriteButtonClicked = { isFavorited ->
+
                     }
                 )
             }

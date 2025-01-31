@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.screen.about
+package com.example.catbreedinformation.ui.screen.about
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image

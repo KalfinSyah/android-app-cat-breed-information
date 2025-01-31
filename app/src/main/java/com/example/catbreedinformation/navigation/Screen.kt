@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.navigation
+package com.example.catbreedinformation.navigation
 
 sealed class Screen(val route: String) {
     data object Home : Screen("home")

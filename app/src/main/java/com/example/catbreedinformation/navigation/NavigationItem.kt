@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.navigation
+package com.example.catbreedinformation.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

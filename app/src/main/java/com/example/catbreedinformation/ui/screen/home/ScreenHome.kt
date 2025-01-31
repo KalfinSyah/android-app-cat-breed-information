@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.screen.home
+package com.example.catbreedinformation.ui.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,16 +34,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.catbreedinformation.data.getCatBreed
-
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.catbreedinformation.ViewModelFactory
+import com.example.catbreedinformation.di.Injection
+import com.example.catbreedinformation.ui.components.SearchBar
 
 @Composable
 fun ScreenHome(
     modifier: Modifier = Modifier,
+    viewModel: ScreenHomeViewModel = viewModel(
+        factory = ViewModelFactory(Injection.provideRepository())
+    ),
     onClick: (String, Int, String, String, String, String) -> Unit = { _, _, _, _, _, _ -> }
 ) {
     val context = LocalContext.current
-    val catBreeds = getCatBreed(context)
+    val catBreeds = viewModel.getAllCatBreed(context)
 
     LazyVerticalGrid(
         modifier = modifier
@@ -51,6 +58,15 @@ fun ScreenHome(
         verticalArrangement = Arrangement.spacedBy(32.dp),
         horizontalArrangement = Arrangement.spacedBy((16).dp)
     ) {
+        item(span = { GridItemSpan(maxLineSpan) }) {
+            SearchBar(
+                query = viewModel.query,
+                onQueryChange = { viewModel.searchCatBreed(context, it) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp)
+            )
+        }
         items(catBreeds) { item ->
             HomeScreenItem(
                 modifier = modifier,

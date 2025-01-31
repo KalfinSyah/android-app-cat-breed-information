@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.navigation
+package com.example.catbreedinformation.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -18,6 +18,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.catbreedinformation.R
+import com.example.catbreedinformation.navigation.NavigationItem
+import com.example.catbreedinformation.navigation.Screen
 
 @Composable
 fun BottomBar(

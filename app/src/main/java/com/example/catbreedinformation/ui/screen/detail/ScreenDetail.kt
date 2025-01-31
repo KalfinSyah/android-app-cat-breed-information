@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.ui.components.screen.detail
+package com.example.catbreedinformation.ui.screen.detail
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -60,7 +61,7 @@ fun ScreenDetail(
     appearance: String,
     description: String,
     onBackButtonClicked: () -> Unit = {},
-    onFavoriteButtonClicked: () -> Unit = {}
+    onFavoriteButtonClicked: (Boolean) -> Unit = {}
 ) {
     Column(
         modifier = modifier
@@ -93,7 +94,7 @@ fun DetailScreenItem(
     appearance: String,
     description: String,
     onBackButtonClicked: () -> Unit = {},
-    onFavoriteButtonClicked: () -> Unit = {}
+    onFavoriteButtonClicked: (Boolean) -> Unit = {}
 ) {
 
     Button(
@@ -129,14 +130,21 @@ fun DetailScreenItem(
                 .clip(RoundedCornerShape(percent = 25))
         )
         Icon(
-            imageVector = Icons.Default.FavoriteBorder,
+            imageVector = if (isFavorited) {
+                Icons.Default.Favorite
+            } else {
+                Icons.Default.FavoriteBorder
+            },
             contentDescription = "Favorite",
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(20.dp)
                 .size(50.dp)
                 .padding(4.dp)
-                .clickable { onFavoriteButtonClicked() },
+                .clickable {
+                    isFavorited = !isFavorited
+                    onFavoriteButtonClicked(isFavorited)
+                },
             tint = Color.Red
         )
     }
