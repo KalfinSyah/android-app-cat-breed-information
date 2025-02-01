@@ -1,7 +1,7 @@
 package com.example.catbreedinformation.ui.screen.detail
 
 import androidx.lifecycle.ViewModel
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreed
 import com.example.catbreedinformation.data.repository.FavoriteCatBreedRepository
 import kotlinx.coroutines.flow.first
 

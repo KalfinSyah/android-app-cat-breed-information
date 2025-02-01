@@ -12,18 +12,32 @@ class ScreenHomeViewModel(
     private val repository: CatBreedRepository
 ): ViewModel() {
     var query by mutableStateOf("")
-    private var _catBreeds = mutableListOf<CatBreed>()
 
-    fun getAllCatBreed(context: Context): List<CatBreed> {
+    fun getCatBreeds(context: Context): List<CatBreed> {
         return if (this.query.isNotBlank())  {
-            repository.searchCatBreed(context, query)
+            repository.search(context, query)
         } else {
-            repository.getAllCatBreed(context)
+            repository.getAll(context)
         }
     }
 
-    fun searchCatBreed(context: Context, query: String) {
+    fun search(query: String) {
         this.query= query
-        _catBreeds.addAll(repository.searchCatBreed(context, query))
     }
+
+//    var query: String? by mutableStateOf(null)
+//
+//    private var _catBreeds = mutableListOf<CatBreed>()
+//    val catBreeds: List<CatBreed> = _catBreeds
+//
+//    fun search(context: Context, query: String? = null) {
+//        this.query = query
+//        _catBreeds.clear()
+//
+//        if (query.isNullOrBlank()) {
+//            _catBreeds.addAll(repository.getAll(context))
+//        } else {
+//            _catBreeds.addAll(repository.search(context, query))
+//        }
+//    }
 }

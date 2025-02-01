@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.data.local.room
+package com.example.catbreedinformation.data.local.room.favoritecatbreed
 
 import androidx.room.Dao
 import androidx.room.Insert

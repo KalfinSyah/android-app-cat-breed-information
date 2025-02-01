@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -35,8 +36,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreed
 import com.example.catbreedinformation.ui.AppViewModelProvider
+import com.example.catbreedinformation.ui.components.NoDataFoundInfo
 
 @Composable
 fun ScreenFavorite(
@@ -63,6 +65,11 @@ fun ScreenFavorite(
         verticalArrangement = Arrangement.spacedBy(32.dp),
         horizontalArrangement = Arrangement.spacedBy((16).dp)
     ) {
+        if (favoriteCatBreeds.isEmpty()) {
+            item(span = { GridItemSpan(maxLineSpan) }) {
+                NoDataFoundInfo(modifier = modifier)
+            }
+        }
         items(favoriteCatBreeds) { item ->
             FavoriteScreenItem(
                 modifier = modifier,

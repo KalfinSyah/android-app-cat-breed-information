@@ -4,7 +4,7 @@ import android.app.Application
 import com.example.catbreedinformation.data.local.room.AppContainer
 import com.example.catbreedinformation.data.local.room.AppDataContainer
 
-class FavoriteCatBreedApplication : Application() {
+class MainApplication : Application() {
     lateinit var container: AppContainer
 
     override fun onCreate() {

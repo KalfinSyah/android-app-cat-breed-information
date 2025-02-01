@@ -1,6 +1,6 @@
 package com.example.catbreedinformation.data.repository
 
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreed
 import kotlinx.coroutines.flow.Flow
 
 interface  FavoriteCatBreedRepository {

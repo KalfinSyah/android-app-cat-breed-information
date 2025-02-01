@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.catbreedinformation.ui.AppViewModelProvider
+import com.example.catbreedinformation.ui.components.NoDataFoundInfo
 import com.example.catbreedinformation.ui.components.SearchBar
 
 @Composable
@@ -46,10 +47,12 @@ fun ScreenHome(
     onClick: (String, Int, String, String, String, String) -> Unit = { _, _, _, _, _, _ -> }
 ) {
     val context = LocalContext.current
-    val catBreeds = viewModel.getAllCatBreed(context)
+    val catBreeds = viewModel.getCatBreeds(context)
 
-    // if query is not empty, then delete the query first, then exit
-    BackHandler(enabled = viewModel.query.isNotEmpty()) {
+
+    // this BackHandler will prevent user from exit when user click the back navigation after searching
+    // it will delete the query when user click back navigation, then user can click back navigation again for exit
+    BackHandler(enabled = viewModel.query.isNotBlank()) {
         viewModel.query = ""
     }
 
@@ -64,11 +67,16 @@ fun ScreenHome(
         item(span = { GridItemSpan(maxLineSpan) }) {
             SearchBar(
                 query = viewModel.query,
-                onQueryChange = { viewModel.searchCatBreed(context, it) },
-                modifier = Modifier
+                onQueryChange = { viewModel.search(it) },
+                modifier = modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp)
             )
+        }
+        if (catBreeds.isEmpty()) {
+            item(span = { GridItemSpan(maxLineSpan) }) {
+                NoDataFoundInfo(modifier = modifier)
+            }
         }
         items(catBreeds) { item ->
             HomeScreenItem(

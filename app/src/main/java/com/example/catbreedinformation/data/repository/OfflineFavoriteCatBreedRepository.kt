@@ -1,7 +1,7 @@
 package com.example.catbreedinformation.data.repository
 
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreedDao
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreed
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreedDao
 import kotlinx.coroutines.flow.Flow
 
 class OfflineFavoriteCatBreedRepository(private val favoriteCatBreedDao: FavoriteCatBreedDao): FavoriteCatBreedRepository {

@@ -40,7 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.catbreedinformation.R
-import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
+import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreed
 import com.example.catbreedinformation.ui.AppViewModelProvider
 import com.example.catbreedinformation.ui.components.SurfaceAndTextFusion
 import kotlinx.coroutines.launch

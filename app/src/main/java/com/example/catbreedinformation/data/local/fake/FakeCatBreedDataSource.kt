@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.catbreedinformation.R
 
 object FakeCatBreedDataSource {
-    fun getAllCatBreed(context: Context): List<CatBreed> {
+    fun getAll(context: Context): List<CatBreed> {
         val getCatBreedsDetails = listOf(
             context.resources.getStringArray(R.array.abyssinian_details),
             context.resources.getStringArray(R.array.american_shorthair_details),

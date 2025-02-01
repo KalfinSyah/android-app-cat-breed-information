@@ -9,6 +9,8 @@
     <string name="label_life_span">Life span is about %s </string>
     <string name="label_appearance">The appearance is %s </string>
 
+    <string name="label_no_data_found">No Data Found</string>
+
     <string-array name="abyssinian_details">
         <item>Abyssinian</item>
         <item>Ethiopia</item>
