@@ -23,6 +23,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.catbreedinformation.FavoriteCatBreedApplication
 import com.example.catbreedinformation.data.repository.CatBreedRepository
 import com.example.catbreedinformation.ui.screen.detail.ScreenDetailViewModel
+import com.example.catbreedinformation.ui.screen.favorite.ScreenFavoriteViewModel
 import com.example.catbreedinformation.ui.screen.home.ScreenHomeViewModel
 
 object AppViewModelProvider {
@@ -33,6 +34,9 @@ object AppViewModelProvider {
         }
         initializer {
             ScreenDetailViewModel(favoriteCatBreedApplication().container.favoriteCatBreedRepository)
+        }
+        initializer {
+            ScreenFavoriteViewModel(favoriteCatBreedApplication().container.favoriteCatBreedRepository)
         }
     }
 }

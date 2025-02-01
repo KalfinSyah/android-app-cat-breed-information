@@ -4,7 +4,7 @@ import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
 import kotlinx.coroutines.flow.Flow
 
 interface  FavoriteCatBreedRepository {
-    fun getAll(): Flow<List<FavoriteCatBreed>>
+    fun getAll(): Flow<List<FavoriteCatBreed>?>
     fun getByName(name: String): Flow<FavoriteCatBreed?>
 
     suspend fun insert(favoriteCatBreed: FavoriteCatBreed)

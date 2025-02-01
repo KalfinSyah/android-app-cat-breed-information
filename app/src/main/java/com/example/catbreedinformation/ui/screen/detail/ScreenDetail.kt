@@ -1,7 +1,5 @@
 package com.example.catbreedinformation.ui.screen.detail
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,9 +18,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -38,23 +34,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.catbreedinformation.R
 import com.example.catbreedinformation.data.local.room.FavoriteCatBreed
 import com.example.catbreedinformation.ui.AppViewModelProvider
+import com.example.catbreedinformation.ui.components.SurfaceAndTextFusion
 import kotlinx.coroutines.launch
 
 @Composable
@@ -180,13 +168,13 @@ fun DetailScreenItem(
     }
 
     Spacer(modifier = modifier.height(32.dp))
-    ScreenDetailSubItem(
+    SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier,
         text = name
     )
     Spacer(modifier = modifier.height(24.dp))
-    ScreenDetailSubItem(
+    SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier,
         text = LocalContext.current.getString(
@@ -195,7 +183,7 @@ fun DetailScreenItem(
         )
     )
     Spacer(modifier = modifier.height(24.dp))
-    ScreenDetailSubItem(
+    SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier,
         text = LocalContext.current.getString(
@@ -204,7 +192,7 @@ fun DetailScreenItem(
         )
     )
     Spacer(modifier = modifier.height(24.dp))
-    ScreenDetailSubItem(
+    SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier,
         text = LocalContext.current.getString(
@@ -213,82 +201,13 @@ fun DetailScreenItem(
         )
     )
     Spacer(modifier = modifier.height(40.dp))
-    ScreenDetailSubItem(
+    SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier.padding(32.dp),
         text = description,
         textAlignText = TextAlign.Justify
     )
 }
-
-@Composable
-fun ScreenDetailSubItem(
-    @SuppressLint("ModifierParameter")
-    modifierSurface: Modifier,
-    shapeSurface: RoundedCornerShape = RoundedCornerShape(25),
-    colorSurface: Color = Color.White,
-    contentColorSurface: Color = contentColorFor(colorSurface),
-    tonalElevationSurface: Dp = 0.dp,
-    shadowElevationSurface: Dp = 0.dp,
-    borderSurface: BorderStroke? = null,
-    text: String,
-    modifierText: Modifier,
-    colorText: Color = Color.Unspecified,
-    fontSizeText: TextUnit = TextUnit.Unspecified,
-    fontStyleText: FontStyle? = null,
-    fontWeightText: FontWeight? = FontWeight.Normal,
-    fontFamilyText: FontFamily? = null,
-    letterSpacingText: TextUnit = TextUnit.Unspecified,
-    textDecorationText: TextDecoration? = null,
-    textAlignText: TextAlign? = TextAlign.Center,
-    lineHeightText: TextUnit = TextUnit.Unspecified,
-    overflowText: TextOverflow = TextOverflow.Clip,
-    softWrapText: Boolean = true,
-    maxLinesText: Int = Int.MAX_VALUE,
-    minLinesText: Int = 1,
-    onTextLayoutText: ((TextLayoutResult) -> Unit)? = null,
-    styleText: TextStyle = TextStyle(
-        fontSize = 20.sp,
-        color = Color.Black,
-    )
-) {
-    Surface(
-        modifier = modifierSurface
-            .shadow(
-                elevation = 8.dp,
-                shape = RoundedCornerShape(percent = 25),
-                clip = false
-            ),
-        shape = shapeSurface,
-        color = colorSurface,
-        contentColor = contentColorSurface,
-        tonalElevation = tonalElevationSurface,
-        shadowElevation = shadowElevationSurface,
-        border = borderSurface,
-    ) {
-        Text(
-            text = text,
-            modifier = modifierText
-                .padding(16.dp),
-            color = colorText,
-            fontSize = fontSizeText,
-            fontStyle = fontStyleText,
-            fontWeight = fontWeightText,
-            fontFamily = fontFamilyText,
-            letterSpacing = letterSpacingText,
-            textDecoration = textDecorationText,
-            textAlign = textAlignText,
-            lineHeight = lineHeightText,
-            overflow = overflowText,
-            softWrap = softWrapText,
-            maxLines = maxLinesText,
-            minLines = minLinesText,
-            onTextLayout = onTextLayoutText,
-            style = styleText
-        )
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable

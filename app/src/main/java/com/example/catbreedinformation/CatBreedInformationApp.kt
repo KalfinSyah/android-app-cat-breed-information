@@ -3,11 +3,13 @@ package com.example.catbreedinformation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.catbreedinformation.navigation.Screen
@@ -22,12 +24,17 @@ fun CatBreedInformationApp(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
     Scaffold(
         bottomBar = {
-            BottomBar(
-                navController = navController,
-                modifier = modifier,
-            )
+            if (currentRoute != Screen.Detail.route) {
+                BottomBar(
+                    navController = navController,
+                    modifier = modifier,
+                )
+            }
         },
         modifier = modifier
     ) { innerPadding ->
@@ -84,7 +91,18 @@ fun CatBreedInformationApp(
             composable(Screen.Favorite.route) {
                 ScreenFavorite(
                     modifier = modifier,
-                )
+                ) { name, imageUrl, origin, lifespan, appearance, description ->
+                    navController.navigate(
+                        Screen.Detail.createRoute(
+                            name = name,
+                            imageUrl = imageUrl,
+                            origin = origin,
+                            lifespan = lifespan,
+                            appearance = appearance,
+                            description = description
+                        )
+                    )
+                }
             }
             composable(Screen.About.route) {
                 ScreenAbout(

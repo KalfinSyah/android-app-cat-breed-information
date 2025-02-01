@@ -15,7 +15,7 @@ interface FavoriteCatBreedDao {
     suspend fun deleteByName(name: String)
 
     @Query("SELECT * FROM favoritecatbreed")
-     fun getAll(): Flow<List<FavoriteCatBreed>>
+     fun getAll(): Flow<List<FavoriteCatBreed>?>
 
      @Query("SELECT * FROM favoritecatbreed WHERE name = :name")
      fun getByName(name: String): Flow<FavoriteCatBreed?>

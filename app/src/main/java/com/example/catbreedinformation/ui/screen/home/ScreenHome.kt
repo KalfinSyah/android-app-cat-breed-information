@@ -75,8 +75,16 @@ fun ScreenHome(
                 modifier = modifier,
                 name = item.name,
                 imageUrl = item.imageUrl,
-                onClick =  { onClick(item.name, item.imageUrl, item.origin, item.lifespan, item.appearance, item.description) },
-            )
+            ) {
+                onClick(
+                    item.name,
+                    item.imageUrl,
+                    item.origin,
+                    item.lifespan,
+                    item.appearance,
+                    item.description
+                )
+            }
         }
     }
 }
@@ -86,7 +94,7 @@ private fun HomeScreenItem(
     modifier: Modifier = Modifier,
     name: String,
     imageUrl: Int,
-    onClick: () -> Unit
+    onClick: () -> Unit = {}
 ) {
     Column(
         modifier = modifier
