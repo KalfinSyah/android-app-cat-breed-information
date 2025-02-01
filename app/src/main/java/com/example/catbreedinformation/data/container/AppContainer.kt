@@ -1,4 +1,4 @@
-package com.example.catbreedinformation.data.local.room
+package com.example.catbreedinformation.data.container
 
 import android.content.Context
 import com.example.catbreedinformation.data.local.room.favoritecatbreed.FavoriteCatBreedDatabase

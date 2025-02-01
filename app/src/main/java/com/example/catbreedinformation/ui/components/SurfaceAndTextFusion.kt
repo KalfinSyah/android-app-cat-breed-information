@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -53,7 +54,8 @@ fun SurfaceAndTextFusion(
     styleText: TextStyle = TextStyle(
         fontSize = 20.sp,
         color = Color.Black,
-    )
+    ),
+    testTag: String = ""
 ) {
     Surface(
         modifier = modifierSurface
@@ -72,7 +74,8 @@ fun SurfaceAndTextFusion(
         Text(
             text = text,
             modifier = modifierText
-                .padding(16.dp),
+                .padding(16.dp)
+                .testTag(testTag),
             color = colorText,
             fontSize = fontSizeText,
             fontStyle = fontStyleText,
@@ -87,7 +90,7 @@ fun SurfaceAndTextFusion(
             maxLines = maxLinesText,
             minLines = minLinesText,
             onTextLayout = onTextLayoutText,
-            style = styleText
+            style = styleText,
         )
     }
 }

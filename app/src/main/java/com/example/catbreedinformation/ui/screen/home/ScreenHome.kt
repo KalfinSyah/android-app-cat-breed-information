@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -58,7 +59,8 @@ fun ScreenHome(
 
     LazyVerticalGrid(
         modifier = modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .testTag("catBreedList"),
         columns = GridCells.Adaptive(minSize = 150.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
         verticalArrangement = Arrangement.spacedBy(32.dp),
@@ -109,7 +111,8 @@ private fun HomeScreenItem(
             .fillMaxWidth()
             .clickable(
                 onClick = { onClick() }
-            ),
+            )
+            .testTag("searchResult"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(

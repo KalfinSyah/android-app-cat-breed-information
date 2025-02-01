@@ -10,6 +10,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -21,7 +22,7 @@ fun SearchBar(
     TextField(
         value = query,
         onValueChange = { onQueryChange(it) },
-        modifier = modifier,
+        modifier = modifier.testTag("searchBar"),
         placeholder = {
             Text(text = "search....")
         },

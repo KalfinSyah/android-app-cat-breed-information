@@ -33,6 +33,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -100,7 +101,7 @@ fun DetailScreenItem(
 
     Button(
         onClick = { onBackButtonClicked() },
-        modifier = modifier,
+        modifier = modifier.testTag("backToHome"),
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 10.dp,
             pressedElevation = 15.dp,
@@ -137,6 +138,7 @@ fun DetailScreenItem(
             },
             contentDescription = "Favorite",
             modifier = Modifier
+                .testTag("favorite")
                 .align(Alignment.BottomEnd)
                 .padding(20.dp)
                 .size(50.dp)
@@ -171,7 +173,8 @@ fun DetailScreenItem(
     SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier,
-        text = name
+        text = name,
+        testTag = "catBreedName"
     )
     Spacer(modifier = modifier.height(24.dp))
     SurfaceAndTextFusion(
@@ -180,7 +183,8 @@ fun DetailScreenItem(
         text = LocalContext.current.getString(
             R.string.label_origin,
             origin
-        )
+        ),
+        testTag = "catBreedOrigin"
     )
     Spacer(modifier = modifier.height(24.dp))
     SurfaceAndTextFusion(
@@ -189,7 +193,8 @@ fun DetailScreenItem(
         text = LocalContext.current.getString(
             R.string.label_life_span,
             lifespan
-        )
+        ),
+        testTag = "catBreedLifeSpan"
     )
     Spacer(modifier = modifier.height(24.dp))
     SurfaceAndTextFusion(
@@ -198,14 +203,16 @@ fun DetailScreenItem(
         text = LocalContext.current.getString(
             R.string.label_appearance,
             appearance
-        )
+        ),
+        testTag = "catBreedAppearance"
     )
     Spacer(modifier = modifier.height(40.dp))
     SurfaceAndTextFusion(
         modifierSurface = modifier,
         modifierText = modifier.padding(32.dp),
         text = description,
-        textAlignText = TextAlign.Justify
+        textAlignText = TextAlign.Justify,
+        testTag = "catBreedDescription"
     )
 }
 
